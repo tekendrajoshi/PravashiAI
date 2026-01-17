@@ -1,0 +1,10 @@
+project_id = "kbgutqrjrcvlfqwjcuxf"
+
+[functions.rag-chat]
+verify_jwt = false
+
+[functions.analyze-document]
+verify_jwt = false
+
+[functions.translate]
+verify_jwt = false

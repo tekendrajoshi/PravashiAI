@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PravasiAI Design System - Warm, Trustworthy, Accessible */
+
+@layer base {
+  :root {
+    /* Primary - Trustworthy Teal */
+    --primary: 172 66% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 172 66% 95%;
+    --primary-dark: 172 66% 30%;
+    
+    /* Secondary - Hopeful Amber */
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 0 0% 10%;
+    --secondary-light: 38 92% 95%;
+    
+    /* Background - Warm Cream */
+    --background: 40 40% 98%;
+    --foreground: 220 20% 15%;
+    
+    /* Card & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    
+    /* Muted */
+    --muted: 40 20% 94%;
+    --muted-foreground: 220 10% 45%;
+    
+    /* Accent */
+    --accent: 172 66% 95%;
+    --accent-foreground: 172 66% 25%;
+    
+    /* Destructive - Warning Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Success Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning Orange */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+    
+    /* Info Blue */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 172 66% 40%;
+    
+    --radius: 1rem;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 172 66% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 172 66% 95%;
+    --sidebar-accent-foreground: 172 66% 25%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 172 66% 40%;
+    
+    /* Chat bubbles */
+    --chat-user: 172 66% 40%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 40 20% 94%;
+    --chat-assistant-foreground: 220 20% 15%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(172, 66%, 40%) 0%, hsl(172, 66%, 30%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(40, 40%, 98%) 0%, hsl(172, 66%, 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(40, 20%, 97%) 100%);
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 95%;
+    
+    --card: 220 20% 14%;
+    --card-foreground: 40 20% 95%;
+    
+    --popover: 220 20% 14%;
+    --popover-foreground: 40 20% 95%;
+    
+    --primary: 172 66% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 0 0% 10%;
+    
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 65%;
+    
+    --accent: 172 66% 20%;
+    --accent-foreground: 172 66% 90%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 172 66% 50%;
+    
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 172 66% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 172 66% 20%;
+    --sidebar-accent-foreground: 172 66% 90%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 172 66% 50%;
+    
+    --chat-user: 172 66% 45%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 220 15% 20%;
+    --chat-assistant-foreground: 40 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Better touch targets for mobile */
+  button, a, input, select, textarea {
+    @apply touch-manipulation;
+  }
+  
+  /* Large readable text for accessibility */
+  p, span, li {
+    @apply text-base leading-relaxed;
+  }
+  
+  h1 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  
+  h2 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+  
+  h3 {
+    @apply text-lg font-semibold;
+  }
+}
+
+@layer components {
+  /* Primary action button - large touch target */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:opacity-90 active:scale-[0.98] 
+           px-6 py-4 rounded-xl font-semibold text-lg shadow-lg 
+           transition-all duration-200 min-h-[56px] flex items-center justify-center gap-3;
+  }
+  
+  /* Secondary button */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:opacity-90 active:scale-[0.98]
+           px-6 py-4 rounded-xl font-semibold text-lg shadow-md
+           transition-all duration-200 min-h-[56px] flex items-center justify-center gap-3;
+  }
+  
+  /* Ghost/outline button */
+  .btn-ghost {
+    @apply border-2 border-border text-foreground hover:bg-muted active:scale-[0.98]
+           px-6 py-4 rounded-xl font-medium text-lg
+           transition-all duration-200 min-h-[56px] flex items-center justify-center gap-3;
+  }
+  
+  /* Danger button */
+  .btn-danger {
+    @apply bg-destructive text-destructive-foreground hover:opacity-90 active:scale-[0.98]
+           px-6 py-4 rounded-xl font-semibold text-lg
+           transition-all duration-200 min-h-[56px] flex items-center justify-center gap-3;
+  }
+  
+  /* Card styles */
+  .card-elevated {
+    @apply bg-card rounded-2xl shadow-lg border border-border/50 p-5;
+  }
+  
+  .card-interactive {
+    @apply bg-card rounded-2xl shadow-md border border-border/50 p-5
+           hover:shadow-lg hover:border-primary/20 active:scale-[0.99]
+           transition-all duration-200 cursor-pointer;
+  }
+  
+  /* Chat bubbles */
+  .chat-bubble-user {
+    @apply bg-[hsl(var(--chat-user))] text-[hsl(var(--chat-user-foreground))] 
+           rounded-2xl rounded-br-md px-4 py-3 max-w-[85%] ml-auto shadow-sm;
+  }
+  
+  .chat-bubble-assistant {
+    @apply bg-[hsl(var(--chat-assistant))] text-[hsl(var(--chat-assistant-foreground))]
+           rounded-2xl rounded-bl-md px-4 py-3 max-w-[85%] mr-auto shadow-sm;
+  }
+  
+  /* Red flag badge */
+  .badge-danger {
+    @apply bg-destructive/10 text-destructive border border-destructive/20 
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Success badge */
+  .badge-success {
+    @apply bg-[hsl(var(--success))]/10 text-[hsl(var(--success))] border border-[hsl(var(--success))]/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Warning badge */
+  .badge-warning {
+    @apply bg-[hsl(var(--warning))]/10 text-[hsl(var(--warning))] border border-[hsl(var(--warning))]/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Info badge */
+  .badge-info {
+    @apply bg-[hsl(var(--info))]/10 text-[hsl(var(--info))] border border-[hsl(var(--info))]/20
+           px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Question template chips */
+  .question-chip {
+    @apply bg-primary/10 text-primary border border-primary/20
+           px-4 py-3 rounded-xl text-base font-medium
+           hover:bg-primary/20 active:scale-[0.98] cursor-pointer
+           transition-all duration-200;
+  }
+  
+  /* Bottom navigation */
+  .nav-item {
+    @apply flex flex-col items-center justify-center gap-1 py-2 px-4 
+           text-muted-foreground transition-colors duration-200;
+  }
+  
+  .nav-item-active {
+    @apply text-primary;
+  }
+  
+  /* Input field - large for easy touch */
+  .input-field {
+    @apply w-full px-4 py-4 text-lg rounded-xl border-2 border-border
+           bg-card focus:border-primary focus:ring-2 focus:ring-primary/20
+           outline-none transition-all duration-200 min-h-[56px];
+  }
+  
+  /* Loading spinner */
+  .spinner {
+    @apply w-6 h-6 border-3 border-primary/20 border-t-primary rounded-full animate-spin;
+  }
+  
+  /* Page container */
+  .page-container {
+    @apply min-h-screen bg-background pb-24;
+  }
+  
+  /* Header */
+  .app-header {
+    @apply sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border
+           px-4 py-3 flex items-center gap-4;
+  }
+  
+  /* Floating action button */
+  .fab {
+    @apply fixed bottom-24 right-4 w-14 h-14 rounded-full shadow-xl
+           bg-primary text-primary-foreground flex items-center justify-center
+           hover:opacity-90 active:scale-95 transition-all duration-200;
+  }
+  
+  /* Clarity score meter */
+  .clarity-meter {
+    @apply h-3 rounded-full bg-muted overflow-hidden;
+  }
+  
+  .clarity-meter-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+  
+  /* Pulse animation for recording */
+  .pulse-recording {
+    @apply animate-pulse;
+  }
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+  
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 0.5rem);
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
